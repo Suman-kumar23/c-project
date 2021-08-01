@@ -1,10 +1,4 @@
-/******************************************************************************
 
-                            Online C Compiler.
-                Code, Compile, Run and Debug C program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
 
 #include <stdio.h>
 #include <string.h>
@@ -14,12 +8,14 @@ Write your code in this editor and press "Run" button to compile and execute it.
 
 
 
-struct ad{
+struct patient{
     char name ;
     char disease;
     int cabin,phone,age;
 }x[100];
 int n,i,j=0,a=0,sum=0,g,flag,num;
+
+// main operations
 void read();
 void add();
 void view();
@@ -142,6 +138,8 @@ void add()
     }
 }
 
+
+
 void view()
 {
     for(i=0; i<num; i++)
@@ -156,6 +154,8 @@ void view()
         printf("\n\n");
     }
 }
+
+
 
 
 void edit()
@@ -217,6 +217,9 @@ void edit()
         printf("\n\nInvalid option\nTry Again!!\n\n");
     }
 }
+
+
+
 
 void search()
 {
@@ -377,11 +380,11 @@ void search()
     }
     else
         printf("\n\nInvalid input\n\n");
- 
- 
- 
- 
 }
+
+
+
+
 
 void del()
 {
@@ -448,9 +451,12 @@ void read()
         
     }
 
-    num = fread(x, sizeof(struct ad),100, fp);
+    num = fread(x, sizeof(struct patient),100, fp);
     fclose(fp);
 }
+
+
+
 void write()
 {
     FILE *fp = fopen("patient.txt","w");
@@ -459,7 +465,7 @@ void write()
         printf("Error");
         exit(1);
     }
-    fwrite(x, sizeof(struct ad),num, fp);
+    fwrite(x, sizeof(struct patient),num, fp);
  
     fclose(fp);
 }
